@@ -8,12 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		155EA2151BF11CD60013189D /* actortest.h in Headers */ = {isa = PBXBuildFile; fileRef = 155EA2141BF11CD60013189D /* actortest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		155EA2251BF11D4D0013189D /* NSObject+ActorKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 155EA21D1BF11D4D0013189D /* NSObject+ActorKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		155EA2291BF11D4D0013189D /* NSObject+ActorKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 155EA2211BF11D4D0013189D /* NSObject+ActorKit.m */; };
+		155EA2331BF120330013189D /* actortestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 155EA2321BF120330013189D /* actortestTests.m */; };
+		155EA2351BF120330013189D /* actortest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155EA2111BF11CD60013189D /* actortest.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		155EA2361BF120330013189D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 155EA2081BF11CD60013189D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 155EA2101BF11CD60013189D;
+			remoteInfo = actortest;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		155EA2111BF11CD60013189D /* actortest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = actortest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		155EA2141BF11CD60013189D /* actortest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = actortest.h; sourceTree = "<group>"; };
 		155EA2161BF11CD60013189D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		155EA21D1BF11D4D0013189D /* NSObject+ActorKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ActorKit.h"; sourceTree = "<group>"; };
+		155EA2211BF11D4D0013189D /* NSObject+ActorKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ActorKit.m"; sourceTree = "<group>"; };
+		155EA2301BF120330013189D /* actortestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = actortestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		155EA2321BF120330013189D /* actortestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = actortestTests.m; sourceTree = "<group>"; };
+		155EA2341BF120330013189D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		155EA23B1BF123480013189D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = actortest/README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,13 +44,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		155EA22D1BF120330013189D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				155EA2351BF120330013189D /* actortest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		155EA2071BF11CD60013189D = {
 			isa = PBXGroup;
 			children = (
+				155EA23B1BF123480013189D /* README.md */,
 				155EA2131BF11CD60013189D /* actortest */,
+				155EA2311BF120330013189D /* actortestTests */,
 				155EA2121BF11CD60013189D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				155EA2111BF11CD60013189D /* actortest.framework */,
+				155EA2301BF120330013189D /* actortestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,8 +79,19 @@
 			children = (
 				155EA2141BF11CD60013189D /* actortest.h */,
 				155EA2161BF11CD60013189D /* Info.plist */,
+				155EA21D1BF11D4D0013189D /* NSObject+ActorKit.h */,
+				155EA2211BF11D4D0013189D /* NSObject+ActorKit.m */,
 			);
 			path = actortest;
+			sourceTree = "<group>";
+		};
+		155EA2311BF120330013189D /* actortestTests */ = {
+			isa = PBXGroup;
+			children = (
+				155EA2321BF120330013189D /* actortestTests.m */,
+				155EA2341BF120330013189D /* Info.plist */,
+			);
+			path = actortestTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,6 +101,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155EA2251BF11D4D0013189D /* NSObject+ActorKit.h in Headers */,
 				155EA2151BF11CD60013189D /* actortest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +127,24 @@
 			productReference = 155EA2111BF11CD60013189D /* actortest.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		155EA22F1BF120330013189D /* actortestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 155EA2381BF120330013189D /* Build configuration list for PBXNativeTarget "actortestTests" */;
+			buildPhases = (
+				155EA22C1BF120330013189D /* Sources */,
+				155EA22D1BF120330013189D /* Frameworks */,
+				155EA22E1BF120330013189D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				155EA2371BF120330013189D /* PBXTargetDependency */,
+			);
+			name = actortestTests;
+			productName = actortestTests;
+			productReference = 155EA2301BF120330013189D /* actortestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -94,6 +155,9 @@
 				ORGANIZATIONNAME = "Julian Krumow";
 				TargetAttributes = {
 					155EA2101BF11CD60013189D = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					155EA22F1BF120330013189D = {
 						CreatedOnToolsVersion = 7.1;
 					};
 				};
@@ -111,12 +175,20 @@
 			projectRoot = "";
 			targets = (
 				155EA2101BF11CD60013189D /* actortest */,
+				155EA22F1BF120330013189D /* actortestTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		155EA20F1BF11CD60013189D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		155EA22E1BF120330013189D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -130,10 +202,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155EA2291BF11D4D0013189D /* NSObject+ActorKit.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		155EA22C1BF120330013189D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				155EA2331BF120330013189D /* actortestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		155EA2371BF120330013189D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 155EA2101BF11CD60013189D /* actortest */;
+			targetProxy = 155EA2361BF120330013189D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		155EA2171BF11CD60013189D /* Debug */ = {
@@ -256,6 +345,26 @@
 			};
 			name = Release;
 		};
+		155EA2391BF120330013189D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = actortestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TB.actortestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		155EA23A1BF120330013189D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = actortestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = TB.actortestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -273,6 +382,14 @@
 			buildConfigurations = (
 				155EA21A1BF11CD60013189D /* Debug */,
 				155EA21B1BF11CD60013189D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		155EA2381BF120330013189D /* Build configuration list for PBXNativeTarget "actortestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				155EA2391BF120330013189D /* Debug */,
+				155EA23A1BF120330013189D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
