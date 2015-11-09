@@ -6,7 +6,7 @@ or
 
 How to write an actor framework in under 50 lines of code.
 
-A production-ready implementation con be found here:
+A production-ready implementation can be found here:
 
 https://github.com/tarbrain/ActorKit
 
