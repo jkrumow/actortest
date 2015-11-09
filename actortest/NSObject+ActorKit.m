@@ -1,20 +1,14 @@
 #import "NSObject+ActorKit.h"
 @interface TBActorProxyAsync : NSProxy
-@property (nonatomic, strong, nonnull) NSObject *actor;
-- (nullable instancetype)initWithActor:(nonnull NSObject *)actor;
+@property (nonatomic, strong) NSObject *actor;
 @end
 @implementation TBActorProxyAsync
-- (instancetype)initWithActor:(NSObject *)actor {
-    _actor = actor;
-    return self;
-}
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
     return [self.actor methodSignatureForSelector:selector];
 }
 - (void)forwardInvocation:(NSInvocation *)invocation {
     [invocation setTarget:self.actor];
-    NSInvocationOperation *operation = [[NSInvocationOperation alloc] initWithInvocation:invocation];
-    [self.actor.actorQueue addOperation:operation];
+    [self.actor.actorQueue addOperation:[[NSInvocationOperation alloc] initWithInvocation:invocation]];
 }
 @end
 @implementation NSObject (ActorKit)
@@ -34,6 +28,8 @@
     objc_setAssociatedObject(self, @selector(actorQueue), actorQueue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 - (id)async {
-    return  [[TBActorProxyAsync alloc] initWithActor:self];
+    TBActorProxyAsync *proxy = [TBActorProxyAsync alloc];
+    proxy.actor = self;
+    return proxy;
 }
 @end

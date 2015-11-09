@@ -33,21 +33,27 @@
 
 @implementation actortestTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
     _actor = [TestActor new];
 }
 
-- (void)tearDown {
+- (void)tearDown
+{
     _actor = nil;
     [super tearDown];
 }
 
-- (void)testSendMessageToActor {
+- (void)testSendMessageToActor
+{
     XCTestExpectation *expectation = [self expectationWithDescription:@"actor acts"];
     
     [[self.actor async] setUuid:@(5)];
     [[self.actor async] doSomething:@"foobar" completion:^{
+        
+        XCTAssertFalse([[NSThread currentThread] isMainThread], @"actor should not execute task on main thread");
+        
         [expectation fulfill];
     }];
     
