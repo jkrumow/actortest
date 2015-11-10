@@ -52,7 +52,7 @@
     [[self.actor async] setUuid:@(5)];
     [[self.actor async] doSomething:@"foobar" completion:^{
         
-        XCTAssertFalse([[NSThread currentThread] isMainThread], @"actor should not execute task on main thread");
+        XCTAssertFalse([[NSThread currentThread] isMainThread], @"actor should execute task on dedicated thread");
         
         [expectation fulfill];
     }];
