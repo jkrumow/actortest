@@ -10,8 +10,7 @@
 #import "actortest.h"
 
 @interface TestActor : NSObject
-
-@property (nonatomic, strong) NSNumber *uuid;
+@property NSNumber *uuid;
 
 - (void)doSomething:(NSString *)argument completion:(void(^)(void))completion;
 @end
@@ -28,7 +27,7 @@
 @end
 
 @interface actortestTests : XCTestCase
-@property (nonatomic, strong) TestActor *actor;
+@property TestActor *actor;
 @end
 
 @implementation actortestTests
@@ -49,8 +48,8 @@
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@"actor acts"];
     
-    [[self.actor async] setUuid:@(5)];
-    [[self.actor async] doSomething:@"foobar" completion:^{
+    [self.actor.async setUuid:@(5)];
+    [self.actor.async doSomething:@"foobar" completion:^{
         
         XCTAssertFalse([[NSThread currentThread] isMainThread], @"actor should execute task on dedicated thread");
         

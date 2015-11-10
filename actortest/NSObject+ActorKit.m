@@ -1,6 +1,6 @@
 #import "NSObject+ActorKit.h"
 @interface TBActorProxyAsync : NSProxy
-@property (nonatomic, strong) NSObject *actor;
+@property NSObject *actor;
 @end
 @implementation TBActorProxyAsync
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)selector {
