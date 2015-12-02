@@ -48,15 +48,18 @@
 {
     XCTestExpectation *expectation = [self expectationWithDescription:@"actor acts"];
     
+    __block NSOperationQueue *currentQueue = nil;
+    
     [self.actor.async setUuid:@(5)];
     [self.actor.async doSomething:@"foobar" completion:^{
         
-        XCTAssertFalse([[NSThread currentThread] isMainThread], @"actor should execute task on dedicated thread");
-        
+        currentQueue = [NSOperationQueue currentQueue];
         [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
+    
+    XCTAssertEqual(currentQueue, self.actor.actorQueue, @"actor should execute task on its dedicated operation queue");
 }
 
 @end
