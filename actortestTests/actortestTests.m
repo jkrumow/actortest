@@ -59,6 +59,7 @@
     
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
     
+    XCTAssertEqual(self.actor.uuid, @(5), @"uuid should equal 5");
     XCTAssertEqual(currentQueue, self.actor.actorQueue, @"actor should execute task on its dedicated operation queue");
 }
 
