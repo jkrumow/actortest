@@ -8,8 +8,8 @@ How to write an actor framework in about 40 lines of code.
 
 A production-ready implementation can be found here:
 
-https://github.com/tarbrain/ActorKit
+https://github.com/jkrumow/ActorKit
 
 ## Author
 
-Julian Krumow, julian.krumow@tarbrain.com
+Julian Krumow, julian.krumow@bogusmachine.com
