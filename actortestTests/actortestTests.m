@@ -10,7 +10,6 @@
 #import "actortest.h"
 
 @interface TestActor : NSObject
-@property NSNumber *uuid;
 
 - (void)doSomething:(NSString *)argument completion:(void(^)(void))completion;
 @end
@@ -19,7 +18,7 @@
 
 - (void)doSomething:(NSString *)argument completion:(void(^)(void))completion
 {
-    NSLog(@"uuid: %@, argument: %@", self.uuid, argument);
+    NSLog(@"argument: %@", argument);
     if (completion) {
         completion();
     }
@@ -49,17 +48,13 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"actor acts"];
     
     __block NSOperationQueue *currentQueue = nil;
-    
-    [self.actor.async setUuid:@(5)];
     [self.actor.async doSomething:@"foobar" completion:^{
-        
         currentQueue = [NSOperationQueue currentQueue];
         [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
     
-    XCTAssertEqual(self.actor.uuid, @(5), @"uuid should equal 5");
     XCTAssertEqual(currentQueue, self.actor.actorQueue, @"actor should execute task on its dedicated operation queue");
 }
 
