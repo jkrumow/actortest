@@ -1,6 +1,6 @@
 # Description
 
-This project is a proof of concept which demonstrates a simple implementation of the actor model in Objective-C.
+This project demonstrates a simple implementation of the actor model in Objective-C.
 
 or
 

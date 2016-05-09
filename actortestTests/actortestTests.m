@@ -11,17 +11,14 @@
 
 @interface TestActor : NSObject
 
-- (void)doSomething:(NSString *)argument completion:(void(^)(void))completion;
+- (void)doSomething:(void(^)(void))completion;
 @end
 
 @implementation TestActor
 
-- (void)doSomething:(NSString *)argument completion:(void(^)(void))completion
+- (void)doSomething:(void (^)(void))completion
 {
-    NSLog(@"argument: %@", argument);
-    if (completion) {
-        completion();
-    }
+    completion();
 }
 @end
 
@@ -48,14 +45,14 @@
     XCTestExpectation *expectation = [self expectationWithDescription:@"actor acts"];
     
     __block NSOperationQueue *currentQueue = nil;
-    [self.actor.async doSomething:@"foobar" completion:^{
+    [self.actor.async doSomething:^{
         currentQueue = [NSOperationQueue currentQueue];
         [expectation fulfill];
     }];
     
     [self waitForExpectationsWithTimeout:1.0 handler:nil];
     
-    XCTAssertEqual(currentQueue, self.actor.actorQueue, @"actor should execute task on its dedicated operation queue");
+    XCTAssertEqual(currentQueue, self.actor.actorQueue, @"Actor should execute the method on its dedicated operation queue!");
 }
 
 @end
