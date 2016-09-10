@@ -13,7 +13,7 @@
 
 - (void)forwardInvocation:(NSInvocation *)invocation
 {
-    [invocation setTarget:self.actor];
+    invocation.target = self.actor;
     [self.actor.actorQueue addOperation:[[NSInvocationOperation alloc] initWithInvocation:invocation]];
 }
 
